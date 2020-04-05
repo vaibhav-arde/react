@@ -1,0 +1,27 @@
+Install VS code
+install node version greater than 8
+install yarn : npm install -g yarn
+
+http://indecision.mead.io
+http://links.mead.io/indecision
+
+format shift + option + f
+
+live server / express/ webpack dev server
+install live server:
+    yarn global add live-server
+    or
+    npm install -g live-server
+To run liver server on public folder 
+    live-server public
+
+https://unpkg.com/react@16.0.0/umd/react.development.js
+https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js
+
+react vr : virtual reality
+react native : for native app
+react-dom : browser
+
+JSX : JavaScript XML
+
+Babel : Javascript compiler
