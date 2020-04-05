@@ -1,22 +1,30 @@
 console.log(`app.js is running!`);
 
 // JSX - JavaScript XML
+let appName = 'Indicision App';
+let itemCount = 0
 let template = (
     <div>
-        <h1>Indicision App</h1>
-        <p>This is an App info</p>
+        <h1>{`Welcome to ${appName.toUpperCase()} !!`}</h1>
+        <p>This is an App info of : {appName}</p>
         <ol>
-            <li>Item One</li>
-            <li>Item Two</li>
+            <li>Item {itemCount + 1}</li>
+            <li>Item {itemCount + 2}</li>
         </ol>
     </div>
 );
 
+let user = {
+    name: 'VaibhaV Arde',
+    age : 32,
+    location : 'Pune'
+};
+
 let templateTwo = (
     <div>
-        <h1>VaibhaV Arde</h1>
-        <p>Age : 32</p>
-        <p>Pune</p>
+        <h1>{user.name}</h1>
+        <p>Age : {user.age}</p>
+        <p>Location : {user.location}</p>
     </div>
 );
 

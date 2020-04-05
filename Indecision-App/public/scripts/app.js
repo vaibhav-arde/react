@@ -3,18 +3,21 @@
 console.log('app.js is running!');
 
 // JSX - JavaScript XML
+var appName = 'Indicision App';
+var itemCount = 0;
 var template = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        'Indicision App'
+        'Welcome to ' + appName.toUpperCase() + ' !!'
     ),
     React.createElement(
         'p',
         null,
-        'This is an App info'
+        'This is an App info of : ',
+        appName
     ),
     React.createElement(
         'ol',
@@ -22,15 +25,23 @@ var template = React.createElement(
         React.createElement(
             'li',
             null,
-            'Item One'
+            'Item ',
+            itemCount + 1
         ),
         React.createElement(
             'li',
             null,
-            'Item Two'
+            'Item ',
+            itemCount + 2
         )
     )
 );
+
+var user = {
+    name: 'VaibhaV Arde',
+    age: 32,
+    location: 'Pune'
+};
 
 var templateTwo = React.createElement(
     'div',
@@ -38,17 +49,19 @@ var templateTwo = React.createElement(
     React.createElement(
         'h1',
         null,
-        'VaibhaV Arde'
+        user.name
     ),
     React.createElement(
         'p',
         null,
-        'Age : 32'
+        'Age : ',
+        user.age
     ),
     React.createElement(
         'p',
         null,
-        'Pune'
+        'Location : ',
+        user.location
     )
 );
 
