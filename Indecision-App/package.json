@@ -1,0 +1,13 @@
+{
+  "name": "Indecision-App",
+  "version": "1.0.0",
+  "description": "React Learnings",
+  "main": "index.js",
+  "repository": "https://github.com/vaibhav-arde/react.git",
+  "author": "VaibhaV Arde",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1"
+  }
+}
