@@ -39,11 +39,26 @@ Install
 
  babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
 
- ==============================================
- 5. JSX Expressions
+==============================================
+ JSX Expressions
  
  Added Babel extenstion : 
     Babel ES6/ES7 by dzannotti and 
     Path Intellisense by christian-kohler
 
+==============================================
 
+Conditional Rendering in JSX
+
+Undefined is implecetly returned if one dont return it explicitly
+
+Ternary Operator: based on condition it used for one or another action
+true ? 'VaibhaV' : 'Anonymous'
+false ? 'VaibhaV' : 'Anonymous'
+
+Logical AND Operator: if condition is true it returns value else nothing 
+Much like undefined, bolean values true and false and null are ignored by the JSX. which is very useful feature.
+
+true && 'SomeValue'
+    in above output is SomeValue, i.e if first value is true next value is returned else false(and false is ignored by JSX)
+==============================================

@@ -5,20 +5,37 @@ console.log('app.js is running!');
 // JSX - JavaScript XML
 var appName = 'Indicision App';
 var itemCount = 0;
+
+var app = {
+    appName: 'Indicision App',
+    subTitle: 'This is an App info of : ',
+    options: ['optOne', 'optTwo', 'optThree']
+};
+
 var template = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        'Welcome to ' + appName.toUpperCase() + ' !!'
+        'Welcome to ' + app.appName.toUpperCase() + ' !!'
     ),
-    React.createElement(
+    app.subTitle && React.createElement(
         'p',
         null,
-        'This is an App info of : ',
-        appName
+        app.subTitle,
+        ' ',
+        app.appName
     ),
+    app.options && (app.options.length < 2 ? React.createElement(
+        'p',
+        null,
+        'You have only one option'
+    ) : React.createElement(
+        'p',
+        null,
+        'You have below options'
+    )),
     React.createElement(
         'ol',
         null,
@@ -38,10 +55,21 @@ var template = React.createElement(
 );
 
 var user = {
-    name: 'VaibhaV Arde',
+    name: '',
     age: 32,
     location: 'Pune'
 };
+
+function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            'p',
+            null,
+            'Location : ',
+            location
+        );
+    }
+}
 
 var templateTwo = React.createElement(
     'div',
@@ -49,20 +77,15 @@ var templateTwo = React.createElement(
     React.createElement(
         'h1',
         null,
-        user.name
+        user.name ? user.name : 'Anonymous'
     ),
-    React.createElement(
+    user.age && user.age >= 18 && React.createElement(
         'p',
         null,
-        'Age : ',
+        ' Age : ',
         user.age
     ),
-    React.createElement(
-        'p',
-        null,
-        'Location : ',
-        user.location
-    )
+    getLocation(user.location)
 );
 
 var appRoot = document.getElementById('app');
