@@ -62,3 +62,6 @@ Much like undefined, bolean values true and false and null are ignored by the JS
 true && 'SomeValue'
     in above output is SomeValue, i.e if first value is true next value is returned else false(and false is ignored by JSX)
 ==============================================
+playGround:
+
+babel src/playGround/es6-let-const.js --out-file=public/scripts/app.js --presets=env,react --watch

@@ -27,15 +27,11 @@ var template = React.createElement(
         ' ',
         app.appName
     ),
-    app.options && (app.options.length < 2 ? React.createElement(
+    React.createElement(
         'p',
         null,
-        'You have only one option'
-    ) : React.createElement(
-        'p',
-        null,
-        'You have below options'
-    )),
+        app.options && (app.options.length < 2 ? 'You have only one option' : 'You have below options')
+    ),
     React.createElement(
         'ol',
         null,
