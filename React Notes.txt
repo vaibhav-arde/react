@@ -72,3 +72,9 @@ All arrow functions are anonymous
 arrow function implicitly return, hence no need to write return.
 argument object - no longer bound with arrow functions */
 this keyword - no longer bound with arrow functions */
+
+=========================
+Evenets and Attributes
+
+Manual Data Binding:
+JSX does not have data Binding
