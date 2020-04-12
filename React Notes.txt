@@ -50,7 +50,7 @@ Install
 
 Conditional Rendering in JSX
 
-Undefined is implecetly returned if one dont return it explicitly
+Undefined is implicitly returned if one dont return it explicitly
 
 Ternary Operator: based on condition it used for one or another action
 true ? 'VaibhaV' : 'Anonymous'
@@ -65,3 +65,10 @@ true && 'SomeValue'
 playGround:
 
 babel src/playGround/es6-let-const.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+=========================
+Arrow function:
+All arrow functions are anonymous
+arrow function implicitly return, hence no need to write return.
+argument object - no longer bound with arrow functions */
+this keyword - no longer bound with arrow functions */
