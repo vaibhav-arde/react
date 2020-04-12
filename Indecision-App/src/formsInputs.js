@@ -38,6 +38,10 @@ const resetArray = () => {
     renderingApp();
 };
 
+const decision = ()=>{
+    const randomNum = Math.floor(Math.random() * app.options.length);
+    alert(app.options[randomNum]);
+}
 const renderingApp = () => {
     const template = (
         <div>
@@ -45,6 +49,7 @@ const renderingApp = () => {
             {app.subTitle && <p>{app.subTitle} {app.appName}</p>}
             <p>{app.options.length > 0 && (app.options.length < 2 ? `You have only one option` : `You have below options`)}</p>
             <p>Length of an array at the moment is : {app.options.length}</p>
+            <button disabled = {app.options.length === 0} onClick = {decision}>What should I do?</button>
             <ol>
                 {addedOptions(app.options)}
             </ol>

@@ -46,6 +46,10 @@ var resetArray = function resetArray() {
     renderingApp();
 };
 
+var decision = function decision() {
+    var randomNum = Math.floor(Math.random() * app.options.length);
+    alert(app.options[randomNum]);
+};
 var renderingApp = function renderingApp() {
     var template = React.createElement(
         'div',
@@ -72,6 +76,11 @@ var renderingApp = function renderingApp() {
             null,
             'Length of an array at the moment is : ',
             app.options.length
+        ),
+        React.createElement(
+            'button',
+            { disabled: app.options.length === 0, onClick: decision },
+            'What should I do?'
         ),
         React.createElement(
             'ol',
