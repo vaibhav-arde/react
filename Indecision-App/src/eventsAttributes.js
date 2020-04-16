@@ -1,4 +1,4 @@
-console.log(`Runnong from app2.js`);
+console.log(`Runnong from eventsAttributes.js`);
 
 let myId  = 'test'
 let count = 0

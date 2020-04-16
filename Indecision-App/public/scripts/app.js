@@ -1,112 +1,72 @@
 'use strict';
 
-console.log('formsInputs.js is running!');
+console.log('Running from build-it-visible.js');
 
-// JSX - JavaScript XML
-var itemCount = 0;
+var btnState = false;
 
-var app = {
-    appName: 'Indicision App',
-    subTitle: 'This is an App info of : ',
-    options: []
+var toggleVisibility = function toggleVisibility() {
+    btnState = !btnState;
+    renderApp();
 };
 
-var onFormSubmit = function onFormSubmit(e) {
-    e.preventDefault();
-    console.log('Form Submitted');
-
-    var option = e.target.elements.option.value;
-    console.log(option);
-
-    if (option) {
-        app.options.push(option);
-        e.target.elements.option.value = '';
-
-        renderingApp();
-    }
-};
-
-var addedOptions = function addedOptions(optionArray) {
-    console.log(optionArray);
-    if (optionArray.length > 0) {
-        var fArray = optionArray.map(function (option) {
-            return React.createElement(
-                'li',
+var buttonLogic = function buttonLogic() {
+    if (btnState == true) {
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'button',
+                { onClick: toggleVisibility },
+                'Hide Details'
+            ),
+            ' ',
+            React.createElement(
+                'p',
                 null,
-                option
-            );
-        });
-        console.log(fArray);
-        return fArray;
-    }
+                'Here is some more info'
+            )
+        );
+    } else {
+        return React.createElement(
+            'button',
+            { onClick: toggleVisibility },
+            'Show Details'
+        );
+    };
 };
 
-var resetArray = function resetArray() {
-    app.options = [];
-    renderingApp();
-};
-
-var decision = function decision() {
-    var randomNum = Math.floor(Math.random() * app.options.length);
-    alert(app.options[randomNum]);
-};
-var renderingApp = function renderingApp() {
+var renderApp = function renderApp() {
     var template = React.createElement(
         'div',
         null,
         React.createElement(
             'h1',
             null,
-            'Welcome to ' + app.appName.toUpperCase() + ' !!'
+            'Visibility Toggle'
         ),
-        app.subTitle && React.createElement(
-            'p',
-            null,
-            app.subTitle,
-            ' ',
-            app.appName
-        ),
+        buttonLogic(),
         React.createElement(
-            'p',
+            'h1',
             null,
-            app.options.length > 0 && (app.options.length < 2 ? 'You have only one option' : 'You have below options')
-        ),
-        React.createElement(
-            'p',
-            null,
-            'Length of an array at the moment is : ',
-            app.options.length
+            'Visibility Toggle 2'
         ),
         React.createElement(
             'button',
-            { disabled: app.options.length === 0, onClick: decision },
-            'What should I do?'
+            { onClick: toggleVisibility },
+            btnState ? 'Hide Details 2' : 'Show Details 2'
         ),
-        React.createElement(
-            'ol',
+        btnState && React.createElement(
+            'div',
             null,
-            addedOptions(app.options)
-        ),
-        React.createElement(
-            'form',
-            { onSubmit: onFormSubmit },
-            React.createElement('input', { type: 'Text', name: 'option' }),
             React.createElement(
-                'button',
+                'p',
                 null,
-                'Add Option'
-            ),
-            React.createElement(
-                'button',
-                { onClick: resetArray },
-                'Remove All Options'
+                'Here are some details for sencond toggle'
             )
         )
     );
-
     ReactDOM.render(template, appRoot);
 };
 
 var appRoot = document.getElementById('app');
-
-renderingApp();
+renderApp();
