@@ -1,72 +1,75 @@
 'use strict';
 
-console.log('Running from build-it-visible.js');
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-var btnState = false;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var toggleVisibility = function toggleVisibility() {
-    btnState = !btnState;
-    renderApp();
-};
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-var buttonLogic = function buttonLogic() {
-    if (btnState == true) {
-        return React.createElement(
-            'div',
-            null,
-            React.createElement(
-                'button',
-                { onClick: toggleVisibility },
-                'Hide Details'
-            ),
-            ' ',
-            React.createElement(
-                'p',
-                null,
-                'Here is some more info'
-            )
-        );
-    } else {
-        return React.createElement(
-            'button',
-            { onClick: toggleVisibility },
-            'Show Details'
-        );
-    };
-};
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var renderApp = function renderApp() {
-    var template = React.createElement(
-        'div',
-        null,
-        React.createElement(
-            'h1',
-            null,
-            'Visibility Toggle'
-        ),
-        buttonLogic(),
-        React.createElement(
-            'h1',
-            null,
-            'Visibility Toggle 2'
-        ),
-        React.createElement(
-            'button',
-            { onClick: toggleVisibility },
-            btnState ? 'Hide Details 2' : 'Show Details 2'
-        ),
-        btnState && React.createElement(
-            'div',
-            null,
-            React.createElement(
-                'p',
-                null,
-                'Here are some details for sencond toggle'
-            )
-        )
-    );
-    ReactDOM.render(template, appRoot);
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var appRoot = document.getElementById('app');
-renderApp();
+console.log('Code form playGround/es6-classes.js is running!!');
+
+var Person = function () {
+    function Person() {
+        var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Anonymous';
+        var age = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+        _classCallCheck(this, Person);
+
+        this.name = name;
+        this.age = age;
+    }
+
+    _createClass(Person, [{
+        key: 'getDetails',
+        value: function getDetails() {
+            return this.name + ' is ' + this.age + ' ' + (this.age > 1 ? 'years' : 'year') + ' old.';
+        }
+    }]);
+
+    return Person;
+}();
+
+var me = new Person('VaibhaV', 33);
+console.log(me.getDetails());
+
+var unknmown = new Person('unknmown', 1);
+console.log(unknmown.getDetails());
+
+var test = new Person();
+console.log(test.getDetails());
+
+// SubClass
+
+var Traveller = function (_Person) {
+    _inherits(Traveller, _Person);
+
+    function Traveller(name, age, location) {
+        _classCallCheck(this, Traveller);
+
+        var _this = _possibleConstructorReturn(this, (Traveller.__proto__ || Object.getPrototypeOf(Traveller)).call(this, name, age));
+
+        _this.location = location;
+        return _this;
+    }
+
+    _createClass(Traveller, [{
+        key: 'getDetails',
+        value: function getDetails() {
+            var desc = _get(Traveller.prototype.__proto__ || Object.getPrototypeOf(Traveller.prototype), 'getDetails', this).call(this);
+            console.log(!!this.location);
+            return !!this.location ? desc += ' He is from ' + this.location : desc;
+        }
+    }]);
+
+    return Traveller;
+}(Person);
+
+var traveller1 = new Traveller('VaibhaV', 33, 'Pune');
+console.log(traveller1.getDetails());
+
+var traveller2 = new Traveller(null, null, 'nowhere');
+console.log(traveller2.getDetails());

@@ -78,3 +78,11 @@ Evenets and Attributes
 
 Manual Data Binding:
 JSX does not have data Binding
+=========================
+
+ES6 Classes
+!'' --> gives true
+!!'' --> gives false
+!'VaibhaV' --> false
+!!'VaibhaV' --> true
+!!undefined --> false
