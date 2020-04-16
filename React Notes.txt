@@ -86,3 +86,8 @@ ES6 Classes
 !'VaibhaV' --> false
 !!'VaibhaV' --> true
 !!undefined --> false
+
+=========================
+
+React Component:
+React component is es6 class

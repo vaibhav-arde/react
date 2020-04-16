@@ -1,50 +1,71 @@
-console.log(`app.js is running!`);
-
-// JSX - JavaScript XML
-let appName = 'Indicision App';
-let itemCount = 0
-
-const app = {
-    appName : 'Indicision App',
-    subTitle : 'This is an App info of : ',
-    options : ['optOne', 'optTwo', 'optThree']
+class IndecisionApp extends React.Component {
+    render() {
+        return (
+            <div>
+                <Header />
+                <Action />
+                <Options />
+                <AddOption />
+            </div>
+        );
+    }
 }
-
-const template = (
-    <div>
-        <h1>{`Welcome to ${app.appName.toUpperCase()} !!`}</h1>
-        {app.subTitle && <p>{app.subTitle} {app.appName}</p>}
-        <p>{app.options && (app.options.length < 2 ? `You have only one option`  :  `You have below options`)}</p>
-        <ol>
-            <li>Item {itemCount + 1}</li>
-            <li>Item {itemCount + 2}</li>
-        </ol>
-    </div>
-);
-
-const user = {
-    name: '',
-    age : 32,
-    location : 'Pune'
-};
-
-function getLocation(location){
-    if (location){
-        return <p>Location : {location}</p>;
+class Header extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>Indecision</h1>
+                <h2>Put your life in the hands of a computer</h2>
+            </div>
+        );
     }
 }
 
-const templateTwo = (
+class Action extends React.Component {
+    render() {
+        return (
+            <div>
+                <button>What should I do?</button>
+            </div>
+        );
+    }
+}
+
+class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                Options component here
+                <Option />
+            </div>
+        );
+    }
+}
+
+class Option extends React.Component {
+    render() {
+        return (
+            <div>
+                Option component Nexted here
+            </div>
+        );
+    }
+}
+
+class AddOption extends React.Component {
+    render() {
+        return (
+            <div>
+                AddOption component here
+            </div>
+        );
+    }
+}
+
+const jsx = (
     <div>
-        <h1>{user.name ? user.name : 'Anonymous'}</h1>
-        {(user.age && user.age >= 18) && <p> Age : {user.age}</p>}
-        {getLocation(user.location)}
+
     </div>
 );
 
-const appRoot = document.getElementById('app');
-const appRoot1 = document.getElementById('app1');
-
-ReactDOM.render(template, appRoot);
-ReactDOM.render(templateTwo, appRoot1);
-
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
