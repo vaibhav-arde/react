@@ -93,3 +93,20 @@ ES6 Classes
 
 React Component:
 React component is es6 class
+
+class className extends React.Component{
+}
+
+render(){  
+}
+
+this.props
+
+form
+    events
+    methods
+
+
+
+
+

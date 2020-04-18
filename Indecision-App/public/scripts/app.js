@@ -81,6 +81,11 @@ var Action = function (_React$Component3) {
     }
 
     _createClass(Action, [{
+        key: 'btnClick',
+        value: function btnClick() {
+            alert('What should I do btn clicked.');
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -88,7 +93,7 @@ var Action = function (_React$Component3) {
                 null,
                 React.createElement(
                     'button',
-                    null,
+                    { onClick: this.btnClick },
                     'What should I do?'
                 )
             );
@@ -108,13 +113,27 @@ var Options = function (_React$Component4) {
     }
 
     _createClass(Options, [{
+        key: 'removeBtn',
+        value: function removeBtn() {
+            alert('\'Remove All Options\' btn clicked.');
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
                 'div',
                 null,
-                'Options component are ',
-                this.props.options.length,
+                React.createElement(
+                    'button',
+                    { onClick: this.removeBtn },
+                    'Remove All Options'
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    'Options component are ',
+                    this.props.options.length
+                ),
                 this.props.options.map(function (option) {
                     return React.createElement(Option, { key: option, optionText: option });
                 })
@@ -158,12 +177,37 @@ var AddOption = function (_React$Component6) {
     }
 
     _createClass(AddOption, [{
+        key: 'submitForm',
+        value: function submitForm(e) {
+            e.preventDefault();
+            console.log('Form Submitted');
+
+            var option = e.target.elements.option.value.trim();
+            console.log(option);
+
+            option ? alert('Option submitted is : ' + option) : alert('Option can not be empty');
+            e.target.elements.option.value = '';
+            // if (option) {
+            //     app.options.push(option);
+            //     e.target.elements.option.value = '';
+            // }
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
                 'div',
                 null,
-                'AddOption component here'
+                React.createElement(
+                    'form',
+                    { onSubmit: this.submitForm },
+                    React.createElement('input', { type: 'Text', name: 'option' }),
+                    React.createElement(
+                        'button',
+                        null,
+                        'Add Option'
+                    )
+                )
             );
         }
     }]);

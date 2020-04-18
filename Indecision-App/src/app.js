@@ -1,14 +1,14 @@
 class IndecisionApp extends React.Component {
     render() {
-        const title = 'Indecision App' ;
+        const title = 'Indecision App';
         const subTitle = 'Be responsible for all happenings'
         const options = ['Option One', 'Option Two', 'Option Three'];
 
         return (
             <div>
-                <Header title = {title} subTitle ={subTitle}/>
+                <Header title={title} subTitle={subTitle} />
                 <Action />
-                <Options options = {options}/>
+                <Options options={options} />
                 <AddOption />
             </div>
         );
@@ -27,21 +27,28 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
+    btnClick() {
+        alert(`What should I do btn clicked.`)
+    }
     render() {
         return (
             <div>
-                <button>What should I do?</button>
+                <button onClick={this.btnClick}>What should I do?</button>
             </div>
         );
     }
 }
 
 class Options extends React.Component {
+    removeBtn() {
+        alert(`'Remove All Options' btn clicked.`)
+    }
     render() {
         return (
             <div>
-                Options component are {this.props.options.length}
-                {this.props.options.map( option => <Option key={option} optionText = {option}/>)}
+                <button onClick={this.removeBtn}>Remove All Options</button>
+                <p>Options component are {this.props.options.length}</p>
+                {this.props.options.map(option => <Option key={option} optionText={option} />)}
             </div>
         );
     }
@@ -58,10 +65,27 @@ class Option extends React.Component {
 }
 
 class AddOption extends React.Component {
+    submitForm(e) {
+        e.preventDefault();
+        console.log('Form Submitted');
+
+        const option = e.target.elements.option.value.trim();
+        console.log(option);
+
+        option ? alert(`Option submitted is : ${option}`) : alert(`Option can not be empty`)
+        e.target.elements.option.value=''
+        // if (option) {
+        //     app.options.push(option);
+        //     e.target.elements.option.value = '';
+        // }
+    }
     render() {
         return (
             <div>
-                AddOption component here
+                <form onSubmit = {this.submitForm}>
+                    <input type='Text' name='option'></input>
+                    <button>Add Option</button>
+                </form>
             </div>
         );
     }
