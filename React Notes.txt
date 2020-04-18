@@ -1,3 +1,5 @@
+Formatter : On Mac Shift + Option + F
+
 Install VS code
 install node version greater than 8
 install yarn : npm install -g yarn
