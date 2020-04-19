@@ -105,6 +105,8 @@ var Counter = function (_React$Component) {
 
 ReactDOM.render(React.createElement(Counter, null), document.getElementById('app'));
 
+// ========================================
+
 // let myId  = 'test'
 // let count = 0
 
@@ -145,3 +147,104 @@ ReactDOM.render(React.createElement(Counter, null), document.getElementById('app
 // }
 
 // renderCounterApp();
+
+// ==================================================
+
+var VisibilityToggle = function (_React$Component2) {
+    _inherits(VisibilityToggle, _React$Component2);
+
+    function VisibilityToggle(props) {
+        _classCallCheck(this, VisibilityToggle);
+
+        var _this2 = _possibleConstructorReturn(this, (VisibilityToggle.__proto__ || Object.getPrototypeOf(VisibilityToggle)).call(this, props));
+
+        _this2.toggleVisibility = _this2.toggleVisibility.bind(_this2);
+        _this2.state = {
+            hName: 'Visibility Toggle',
+            tState: true
+        };
+        return _this2;
+    }
+
+    _createClass(VisibilityToggle, [{
+        key: 'toggleVisibility',
+        value: function toggleVisibility() {
+            this.setState(function (prevState) {
+                return {
+                    tState: !prevState.tState
+                };
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return React.createElement(
+                'div',
+                null,
+                React.createElement(
+                    'h1',
+                    null,
+                    this.state.hName
+                ),
+                React.createElement(
+                    'button',
+                    { onClick: this.toggleVisibility },
+                    this.state.tState ? 'Hide Details' : 'Show Details'
+                ),
+                this.state.tState && React.createElement(
+                    'div',
+                    null,
+                    React.createElement(
+                        'p',
+                        null,
+                        'Here are some details for toggle'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return VisibilityToggle;
+}(React.Component);
+
+ReactDOM.render(React.createElement(VisibilityToggle, null), document.getElementById('app1'));
+
+// ==================================================
+
+// const toggleVisibility = () => {
+//     btnState = !btnState;
+//     renderApp();
+// }
+
+// const buttonLogic = () => {
+//     if (btnState == true) {
+//         return <div><button onClick={toggleVisibility}>Hide Details</button> <p>Here is some more info</p></div>;
+//     } else {
+//         return <button onClick={toggleVisibility}>Show Details</button>;
+//     };
+
+// }
+
+
+// let renderApp = () => {
+//     const template = (
+//         <div>
+//             <h1>Visibility Toggle</h1>
+//             {buttonLogic()}
+
+//             <h1>Visibility Toggle 2</h1>
+//             <button onClick={toggleVisibility}>
+//                 {btnState ? `Hide Details 2` : `Show Details 2`}
+//             </button>
+//             {btnState && (
+//                 <div>
+//                 <p>Here are some details for sencond toggle</p>
+//                 </div>
+//             )}
+//         </div>
+//     )
+//     ReactDOM.render(template, appRoot);
+// }
+
+// const appRoot = document.getElementById('app');
+// renderApp();
