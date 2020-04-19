@@ -106,7 +106,13 @@ form
     events
     methods
 
+=========================
+method Binding
+In JS we loose this binding like in event handlers , bind is handy tool to bind it.
 
-
-
+input constuctor goes as props: 
+constructor(props){
+    super(props);
+    this.handleEvent = this.handleEvent.bind(this)
+}
 

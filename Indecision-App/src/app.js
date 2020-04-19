@@ -40,8 +40,15 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+    constructor(props){
+        super(props)
+        this.removeBtn = this.removeBtn.bind(this);
+    }
     removeBtn() {
         alert(`'Remove All Options' btn clicked.`)
+        console.log(`All options are ${this.props.options}`)
+        // this.props.options=[]
+        // console.log(`All options are ${this.props.options}`)
     }
     render() {
         return (
