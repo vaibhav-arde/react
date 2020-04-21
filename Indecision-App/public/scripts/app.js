@@ -18,10 +18,11 @@ var IndecisionApp = function (_React$Component) {
 
         _this.removeAllBtn = _this.removeAllBtn.bind(_this);
         _this.pickAOption = _this.pickAOption.bind(_this);
+        _this.addNewOption = _this.addNewOption.bind(_this);
         _this.state = {
             title: 'Indecision App',
             subTitle: 'Be responsible for all happenings',
-            options: ['Option One', 'Option Two', 'Option Three']
+            options: []
         };
         return _this;
     }
@@ -34,7 +35,7 @@ var IndecisionApp = function (_React$Component) {
                     options: []
                 };
             });
-            config.log('removeAllBtn is clicked');
+            console.log('removeAllBtn is clicked');
         }
     }, {
         key: 'pickAOption',
@@ -42,6 +43,21 @@ var IndecisionApp = function (_React$Component) {
             // alert('Test');
             var randomNum = Math.floor(Math.random() * this.state.options.length);
             alert(this.state.options[randomNum]);
+        }
+    }, {
+        key: 'addNewOption',
+        value: function addNewOption(option) {
+            if (!option) {
+                return 'Enter valid value to add item';
+            } else if (this.state.options.indexOf(option) > -1) {
+                return 'This option already exist';
+            }
+
+            this.setState(function (prevState) {
+                return {
+                    options: prevState.options.concat(option)
+                };
+            });
         }
     }, {
         key: 'render',
@@ -58,7 +74,9 @@ var IndecisionApp = function (_React$Component) {
                     options: this.state.options,
                     removeAllBtn: this.removeAllBtn
                 }),
-                React.createElement(AddOption, null)
+                React.createElement(AddOption, {
+                    addNewOption: this.addNewOption
+                })
             );
         }
     }]);
@@ -78,7 +96,7 @@ var Header = function (_React$Component2) {
     _createClass(Header, [{
         key: 'render',
         value: function render() {
-            console.log(this.props);
+            // console.log(this.props)
             return React.createElement(
                 'div',
                 null,
@@ -156,7 +174,7 @@ var Options = function (_React$Component4) {
                 React.createElement(
                     'p',
                     null,
-                    'Options component are ',
+                    'Total options available are ',
                     this.props.options.length
                 ),
                 this.props.options.map(function (option) {
@@ -195,10 +213,16 @@ var Option = function (_React$Component5) {
 var AddOption = function (_React$Component6) {
     _inherits(AddOption, _React$Component6);
 
-    function AddOption() {
+    function AddOption(props) {
         _classCallCheck(this, AddOption);
 
-        return _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).apply(this, arguments));
+        var _this6 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
+
+        _this6.submitForm = _this6.submitForm.bind(_this6);
+        _this6.state = {
+            error: undefined
+        };
+        return _this6;
     }
 
     _createClass(AddOption, [{
@@ -208,13 +232,19 @@ var AddOption = function (_React$Component6) {
             console.log('Form Submitted');
 
             var option = e.target.elements.option.value.trim();
-            console.log(option);
+            // console.log(option);
 
-            option ? alert('Option submitted is : ' + option) : alert('Option can not be empty');
+            // option ? alert(`Option submitted is : ${option}`) : alert(`Option can not be empty`)
             e.target.elements.option.value = '';
+            var error = this.props.addNewOption(option);
+            console.log('Error is ' + error);
+            this.setState(function () {
+                return { error: error };
+            });
             // if (option) {
-            //     app.options.push(option);
-            //     e.target.elements.option.value = '';
+            //     this.props.addNewOption(option)
+            //     // app.options.push(option);
+            //     // e.target.elements.option.value = '';
             // }
         }
     }, {
@@ -226,6 +256,11 @@ var AddOption = function (_React$Component6) {
                 React.createElement(
                     'form',
                     { onSubmit: this.submitForm },
+                    this.state.error && React.createElement(
+                        'p',
+                        null,
+                        this.state.error
+                    ),
                     React.createElement('input', { type: 'Text', name: 'option' }),
                     React.createElement(
                         'button',
