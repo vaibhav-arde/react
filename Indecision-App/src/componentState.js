@@ -8,7 +8,7 @@ class Counter extends React.Component {
         this.logReset = this.logReset.bind(this);
         this.state ={
             headerName:'React Components State',
-            count: 0
+            count: props.count
         }
     }
     addCount(){
@@ -56,7 +56,11 @@ class Counter extends React.Component {
     }
 }
 
-ReactDOM.render(<Counter />, document.getElementById('app'));
+Counter.defaultProps={
+    count: 0
+}
+
+ReactDOM.render(<Counter count={7}/>, document.getElementById('app'));
 
 // ========================================
 

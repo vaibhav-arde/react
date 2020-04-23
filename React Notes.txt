@@ -136,3 +136,14 @@ Props Vs State:
 4. In Props changes come from above, but for state changes are defined in component itself.
 5. Props cant be changed from component, but state can be changed in component itself
 =========================
+
+Stateless Functional Components
+
+=========================
+Default props:
+default props are objects.
+defaultProps works with both Stateless and classBased Components.
+ex:
+Header.defaultProps = {
+    title: 'Indecision App'
+}

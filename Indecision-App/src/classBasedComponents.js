@@ -5,8 +5,9 @@ class IndecisionApp extends React.Component {
         this.pickAOption = this.pickAOption.bind(this)
         this.addNewOption = this.addNewOption.bind(this)
         this.state = {
+            title: 'Indecision App',
             subTitle: 'Be responsible for all happenings',
-            options: props.options
+            options: []
         }
     }
     removeAllBtn() {
@@ -57,95 +58,55 @@ class IndecisionApp extends React.Component {
         );
     }
 }
-IndecisionApp.defaultProps= {
-    options:[]
+class Header extends React.Component {
+    render() {
+        // console.log(this.props)
+        return (
+            <div>
+                <h1>{this.props.title}</h1>
+                <h2>{this.props.subTitle}</h2>
+            </div>
+        );
+    }
 }
-const Header =(props)=>{
-    return (
-        <div>
-            <h1>{props.title}</h1>
-            {props.subTitle && <h2>{props.subTitle}</h2>}
-        </div>
-    );
-}
-Header.defaultProps ={
-    title:'Indecision App!!'
-}
-// class Header extends React.Component {
-//     render() {
-//         // console.log(this.props)
-//         return (
-//             <div>
-//                 <h1>{this.props.title}</h1>
-//                 <h2>{this.props.subTitle}</h2>
-//             </div>
-//         );
-//     }
-// }
 
-const Action = (props)=>{
-    return (
-        <div>
-            <button
-                onClick={props.pickAOption}
-                disabled={!props.hasOptions}
-            >What should I do?</button>
-        </div>
-    );
+class Action extends React.Component {
+    // btnClick() {
+    //     alert(`'What should I do' btn clicked.`)
+    // }
+    render() {
+        return (
+            <div>
+                <button
+                    onClick={this.props.pickAOption}
+                    disabled={!this.props.hasOptions}
+                >What should I do?</button>
+            </div>
+        );
+    }
 }
-// class Action extends React.Component {
-//     // btnClick() {
-//     //     alert(`'What should I do' btn clicked.`)
-//     // }
-//     render() {
-//         return (
-//             <div>
-//                 <button
-//                     onClick={this.props.pickAOption}
-//                     disabled={!this.props.hasOptions}
-//                 >What should I do?</button>
-//             </div>
-//         );
-//     }
-// }
 
-const Options =(props)=>{
-    return (
-        <div>
-            <button onClick={props.removeAllBtn}>Remove All Options</button>
-            <p>Total options available are {props.options.length}</p>
-            {props.options.map(option => <Option key={option} optionText={option} />)}
-        </div>
-    );
+class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                <button onClick={this.props.removeAllBtn}>Remove All Options</button>
+                <p>Total options available are {this.props.options.length}</p>
+                {this.props.options.map(option => <Option key={option} optionText={option} />)}
+            </div>
+        );
+    }
 }
-// class Options extends React.Component {
-//     render() {
-//         return (
-//             <div>
-//                 <button onClick={this.props.removeAllBtn}>Remove All Options</button>
-//                 <p>Total options available are {this.props.options.length}</p>
-//                 {this.props.options.map(option => <Option key={option} optionText={option} />)}
-//             </div>
-//         );
-//     }
-// }
 
-const Option = (props)=>{
-    return (
-        <div>
-            {props.optionText}
-        </div>
-    );
+class Option extends React.Component {
+    render() {
+        return (
+            <div>
+                {this.props.optionText}
+            </div>
+        );
+    }
 }
-// class Option extends React.Component {
-//     render() {
-//         return (
-//             <div>
-//                 {this.props.optionText}
-//             </div>
-//         );
-//     }
-// }
 
 class AddOption extends React.Component {
     constructor(props) {
@@ -188,10 +149,10 @@ class AddOption extends React.Component {
     }
 }
 
-// const jsx = (
-//     <div>
+const jsx = (
+    <div>
 
-//     </div>
-// );
+    </div>
+);
 
-ReactDOM.render(<IndecisionApp options= {['VaibhaV', 'Sheetal']}/>, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
