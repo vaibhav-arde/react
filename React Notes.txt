@@ -128,3 +128,11 @@ Follow below steps to set compoent state:
 4. Component re-rendered using new state values*
 5. Start again at 3. 
 
+=========================
+Props Vs State:
+1. Both are an object
+2. Both can be used when Rendering
+3. In both changes cause re-redering.
+4. In Props changes come from above, but for state changes are defined in component itself.
+5. Props cant be changed from component, but state can be changed in component itself
+=========================
