@@ -153,3 +153,8 @@ Chrome react devtools extenstion
 =========================
 Remove Single btn
 =========================
+Lifecycle Methods:
+ex: componentDidMount()
+There is no way to manage lifecyle for stateless component, hence if one want to maintain lifecycle then need to use class based components.
+componentDidUpdate()
+componentWillUnmount()
