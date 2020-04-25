@@ -206,3 +206,15 @@ yarn add webpack@3.1.0
 
 create a file : webpack.config.js
  console.log(__dirname);
+
+=========================
+ES6 Import Export
+
+Create nes app.js
+In webpack.config.js create  entry and output files
+Create utils.js
+import utils.js in app.js
+
+Exports are of two types :
+default exports 
+named exports
