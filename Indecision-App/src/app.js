@@ -7,7 +7,7 @@ class IndecisionApp extends React.Component {
         this.removeSingleBtn = this.removeSingleBtn.bind(this)
         this.state = {
             subTitle: 'Be responsible for all happenings',
-            options: props.options
+            options: []
         }
     }
 
@@ -93,9 +93,7 @@ class IndecisionApp extends React.Component {
         );
     }
 }
-IndecisionApp.defaultProps = {
-    options: []
-}
+
 const Header = (props) => {
     return (
         <div>

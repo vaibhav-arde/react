@@ -8,9 +8,33 @@ class Counter extends React.Component {
         this.logReset = this.logReset.bind(this);
         this.state ={
             headerName:'React Components State',
-            count: props.count
+            count: 0
         }
     }
+
+    componentDidMount() {
+        try {
+            const count = parseInt(localStorage.getItem('count'), 10);
+            // const counter = JSON.parse(json);
+            if (!isNaN(count)){
+                this.setState(() => ({ count }));
+            }
+        } catch (e) {
+            // Do nothing at all
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.count !== this.state.count) {
+            // const json = JSON.stringify(this.state.count);
+            localStorage.setItem('count', this.state.count);
+        }
+    }
+
+    componentWillUnmount() {
+        console.log(`***componentWillUnmount***`)
+    }
+
     addCount(){
         this.setState((prevState) => {
             return{
@@ -56,9 +80,6 @@ class Counter extends React.Component {
     }
 }
 
-Counter.defaultProps={
-    count: 0
-}
 
 ReactDOM.render(<Counter count={7}/>, document.getElementById('app'));
 
