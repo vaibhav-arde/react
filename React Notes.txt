@@ -158,3 +158,24 @@ ex: componentDidMount()
 There is no way to manage lifecyle for stateless component, hence if one want to maintain lifecycle then need to use class based components.
 componentDidUpdate()
 componentWillUnmount()
+=========================
+
+Saving and Loading options data (Local storage)
+
+localStorage.setItem('name', 'VaibhaV');
+localStorage.getItem('name');
+localStorage.removeItem('name');
+
+localStorageonly works with string data, even number is stored as a string.
+
+json data
+json is a string representation of a javascript object or an array.
+
+JSON.stringify : it take regular js object and give string representation
+const json = JSON.stringify({age :26})
+
+JSON.parse : it take string representation of object and give regular js object
+JSON.parse(json)
+JSON.parse(json).age
+
+localStorage.clear()

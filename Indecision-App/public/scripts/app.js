@@ -19,7 +19,7 @@ var IndecisionApp = function (_React$Component) {
         _this.removeAllBtn = _this.removeAllBtn.bind(_this);
         _this.pickAOption = _this.pickAOption.bind(_this);
         _this.addNewOption = _this.addNewOption.bind(_this);
-        _this.removesingleBtn = _this.removesingleBtn.bind(_this);
+        _this.removeSingleBtn = _this.removeSingleBtn.bind(_this);
         _this.state = {
             subTitle: 'Be responsible for all happenings',
             options: props.options
@@ -28,6 +28,34 @@ var IndecisionApp = function (_React$Component) {
     }
 
     _createClass(IndecisionApp, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            try {
+                var json = localStorage.getItem('options');
+                var options = JSON.parse(json);
+                if (options) {
+                    this.setState(function () {
+                        return { options: options };
+                    });
+                }
+            } catch (e) {
+                // Do nothing at all
+            }
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps, prevState) {
+            if (prevState.options.length !== this.state.options.length) {
+                var json = JSON.stringify(this.state.options);
+                localStorage.setItem('options', json);
+            }
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            console.log('***componentWillUnmount***');
+        }
+    }, {
         key: 'removeAllBtn',
         value: function removeAllBtn() {
             this.setState(function () {
@@ -41,8 +69,8 @@ var IndecisionApp = function (_React$Component) {
             console.log('removeAllBtn is clicked');
         }
     }, {
-        key: 'removesingleBtn',
-        value: function removesingleBtn(optionToRemove) {
+        key: 'removeSingleBtn',
+        value: function removeSingleBtn(optionToRemove) {
             console.log('Single btn is removed', optionToRemove);
             this.setState(function (prevState) {
                 return {
@@ -91,7 +119,7 @@ var IndecisionApp = function (_React$Component) {
                 React.createElement(Options, {
                     options: this.state.options,
                     removeAllBtn: this.removeAllBtn,
-                    removesingleBtn: this.removesingleBtn
+                    removeSingleBtn: this.removeSingleBtn
                 }),
                 React.createElement(AddOption, {
                     addNewOption: this.addNewOption
@@ -181,11 +209,16 @@ var Options = function Options(props) {
             'Total options available are ',
             props.options.length
         ),
+        props.options.length === 0 && React.createElement(
+            'p',
+            null,
+            'Please add an option to get started!!'
+        ),
         props.options.map(function (option) {
             return React.createElement(Option, {
                 key: option,
                 optionText: option,
-                removesingleBtn: props.removesingleBtn
+                removeSingleBtn: props.removeSingleBtn
             });
         })
     );
@@ -211,7 +244,7 @@ var Option = function Option(props) {
             'button',
             {
                 onClick: function onClick(e) {
-                    props.removesingleBtn(props.optionText);
+                    props.removeSingleBtn(props.optionText);
                 }
             },
             'remove'
@@ -253,7 +286,7 @@ var AddOption = function (_React$Component2) {
             // console.log(option);
 
             // option ? alert(`Option submitted is : ${option}`) : alert(`Option can not be empty`)
-            e.target.elements.option.value = '';
+
             var error = this.props.addNewOption(option);
             console.log('Error is ' + error);
 
@@ -264,10 +297,9 @@ var AddOption = function (_React$Component2) {
             //     return { error }
             // });
 
-            // if (option) {
-            //     this.props.addNewOption(option)
-            //     // app.options.push(option);
-            //     // e.target.elements.option.value = '';
+            !error && (e.target.elements.option.value = '');
+            // if (!error) {
+            //     e.target.elements.option.value = ''
             // }
         }
     }, {

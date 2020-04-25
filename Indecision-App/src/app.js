@@ -4,12 +4,36 @@ class IndecisionApp extends React.Component {
         this.removeAllBtn = this.removeAllBtn.bind(this)
         this.pickAOption = this.pickAOption.bind(this)
         this.addNewOption = this.addNewOption.bind(this)
-        this.removesingleBtn = this.removesingleBtn.bind(this)
+        this.removeSingleBtn = this.removeSingleBtn.bind(this)
         this.state = {
             subTitle: 'Be responsible for all happenings',
             options: props.options
         }
     }
+
+    componentDidMount() {
+        try {
+            const json = localStorage.getItem('options');
+            const options = JSON.parse(json);
+            if (options) {
+                this.setState(() => ({ options }));
+            }
+        } catch (e) {
+            // Do nothing at all
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.options.length !== this.state.options.length) {
+            const json = JSON.stringify(this.state.options);
+            localStorage.setItem('options', json);
+        }
+    }
+
+    componentWillUnmount() {
+        console.log(`***componentWillUnmount***`)
+    }
+
     removeAllBtn() {
         this.setState(() => ({ options: [] }));
         // this.setState(() => {
@@ -20,10 +44,10 @@ class IndecisionApp extends React.Component {
         console.log(`removeAllBtn is clicked`)
     }
 
-    removesingleBtn(optionToRemove) {
+    removeSingleBtn(optionToRemove) {
         console.log(`Single btn is removed`, optionToRemove)
-        this.setState((prevState)=>({
-            options: prevState.options.filter((option)=>optionToRemove !== option)
+        this.setState((prevState) => ({
+            options: prevState.options.filter((option) => optionToRemove !== option)
         }))
     }
 
@@ -60,7 +84,7 @@ class IndecisionApp extends React.Component {
                 <Options
                     options={this.state.options}
                     removeAllBtn={this.removeAllBtn}
-                    removesingleBtn={this.removesingleBtn}
+                    removeSingleBtn={this.removeSingleBtn}
                 />
                 <AddOption
                     addNewOption={this.addNewOption}
@@ -126,11 +150,12 @@ const Options = (props) => {
         <div>
             <button onClick={props.removeAllBtn}>Remove All Options</button>
             <p>Total options available are {props.options.length}</p>
+            {props.options.length === 0 && <p>Please add an option to get started!!</p>}
             {props.options.map(option => (
                 <Option
                     key={option}
                     optionText={option}
-                    removesingleBtn={props.removesingleBtn}
+                    removeSingleBtn={props.removeSingleBtn}
                 />
             ))}
         </div>
@@ -153,8 +178,8 @@ const Option = (props) => {
         <div>
             {props.optionText}
             <button
-                onClick={(e) =>{
-                    props.removesingleBtn(props.optionText)
+                onClick={(e) => {
+                    props.removeSingleBtn(props.optionText)
                 }}
             >
                 remove
@@ -188,7 +213,7 @@ class AddOption extends React.Component {
         // console.log(option);
 
         // option ? alert(`Option submitted is : ${option}`) : alert(`Option can not be empty`)
-        e.target.elements.option.value = ''
+
         const error = this.props.addNewOption(option)
         console.log(`Error is ${error}`)
 
@@ -197,11 +222,11 @@ class AddOption extends React.Component {
         //     return { error }
         // });
 
-        // if (option) {
-        //     this.props.addNewOption(option)
-        //     // app.options.push(option);
-        //     // e.target.elements.option.value = '';
+        !error && (e.target.elements.option.value = '')
+        // if (!error) {
+        //     e.target.elements.option.value = ''
         // }
+
     }
     render() {
         return (
