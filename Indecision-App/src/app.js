@@ -4,19 +4,29 @@ class IndecisionApp extends React.Component {
         this.removeAllBtn = this.removeAllBtn.bind(this)
         this.pickAOption = this.pickAOption.bind(this)
         this.addNewOption = this.addNewOption.bind(this)
+        this.removesingleBtn = this.removesingleBtn.bind(this)
         this.state = {
             subTitle: 'Be responsible for all happenings',
             options: props.options
         }
     }
     removeAllBtn() {
-        this.setState(() => {
-            return {
-                options: []
-            };
-        })
+        this.setState(() => ({ options: [] }));
+        // this.setState(() => {
+        //     return {
+        //         options: []
+        //     };
+        // })
         console.log(`removeAllBtn is clicked`)
     }
+
+    removesingleBtn(optionToRemove) {
+        console.log(`Single btn is removed`, optionToRemove)
+        this.setState((prevState)=>({
+            options: prevState.options.filter((option)=>optionToRemove !== option)
+        }))
+    }
+
     pickAOption() {
         // alert('Test');
         const randomNum = Math.floor(Math.random() * this.state.options.length);
@@ -31,11 +41,12 @@ class IndecisionApp extends React.Component {
             return 'This option already exist';
         }
 
-        this.setState((prevState) => {
-            return {
-                options: prevState.options.concat(option)
-            }
-        })
+        this.setState((prevState) => ({ options: prevState.options.concat(option) }));
+        // this.setState((prevState) => {
+        //     return {
+        //         options: prevState.options.concat(option)
+        //     }
+        // })
     }
 
     render() {
@@ -49,6 +60,7 @@ class IndecisionApp extends React.Component {
                 <Options
                     options={this.state.options}
                     removeAllBtn={this.removeAllBtn}
+                    removesingleBtn={this.removesingleBtn}
                 />
                 <AddOption
                     addNewOption={this.addNewOption}
@@ -57,10 +69,10 @@ class IndecisionApp extends React.Component {
         );
     }
 }
-IndecisionApp.defaultProps= {
-    options:[]
+IndecisionApp.defaultProps = {
+    options: []
 }
-const Header =(props)=>{
+const Header = (props) => {
     return (
         <div>
             <h1>{props.title}</h1>
@@ -68,8 +80,8 @@ const Header =(props)=>{
         </div>
     );
 }
-Header.defaultProps ={
-    title:'Indecision App!!'
+Header.defaultProps = {
+    title: 'Indecision App!!'
 }
 // class Header extends React.Component {
 //     render() {
@@ -83,7 +95,7 @@ Header.defaultProps ={
 //     }
 // }
 
-const Action = (props)=>{
+const Action = (props) => {
     return (
         <div>
             <button
@@ -109,12 +121,18 @@ const Action = (props)=>{
 //     }
 // }
 
-const Options =(props)=>{
+const Options = (props) => {
     return (
         <div>
             <button onClick={props.removeAllBtn}>Remove All Options</button>
             <p>Total options available are {props.options.length}</p>
-            {props.options.map(option => <Option key={option} optionText={option} />)}
+            {props.options.map(option => (
+                <Option
+                    key={option}
+                    optionText={option}
+                    removesingleBtn={props.removesingleBtn}
+                />
+            ))}
         </div>
     );
 }
@@ -130,10 +148,17 @@ const Options =(props)=>{
 //     }
 // }
 
-const Option = (props)=>{
+const Option = (props) => {
     return (
         <div>
             {props.optionText}
+            <button
+                onClick={(e) =>{
+                    props.removesingleBtn(props.optionText)
+                }}
+            >
+                remove
+            </button>
         </div>
     );
 }
@@ -166,9 +191,12 @@ class AddOption extends React.Component {
         e.target.elements.option.value = ''
         const error = this.props.addNewOption(option)
         console.log(`Error is ${error}`)
-        this.setState(() => {
-            return { error }
-        });
+
+        this.setState(() => ({ error }));
+        // this.setState(() => {
+        //     return { error }
+        // });
+
         // if (option) {
         //     this.props.addNewOption(option)
         //     // app.options.push(option);
@@ -194,4 +222,4 @@ class AddOption extends React.Component {
 //     </div>
 // );
 
-ReactDOM.render(<IndecisionApp options= {['VaibhaV', 'Sheetal']}/>, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp options={['VaibhaV', 'Sheetal']} />, document.getElementById('app'));

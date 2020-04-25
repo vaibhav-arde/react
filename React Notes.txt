@@ -147,3 +147,9 @@ ex:
 Header.defaultProps = {
     title: 'Indecision App'
 }
+=========================
+
+Chrome react devtools extenstion
+=========================
+Remove Single btn
+=========================
