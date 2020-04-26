@@ -218,3 +218,18 @@ import utils.js in app.js
 Exports are of two types :
 default exports 
 named exports
+
+=========================
+Default export:
+import isSenior, { isAdult, canDrink } from './person.js'
+
+export {isAdult, canDrink, isSenior as default};
+=========================
+Importing NPM Modules
+install validator package
+
+yarn add react react-dom
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+=========================
