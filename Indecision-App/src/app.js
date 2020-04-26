@@ -15,6 +15,6 @@ console.log(isSenior(60, 60));
 
 // console.log(validator.isEmail('trest@gmail.com'));
 
-// const template =<p>Testing React package</p>
-const template = React.createElement('p',{}, 'Testing React');
+const template =<p>Testing : This is JSX from WEBPACK</p>
+// const template = React.createElement('p',{}, 'Testing React');
 ReactDOM.render(template, document.getElementById('app'));

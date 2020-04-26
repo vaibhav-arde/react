@@ -233,3 +233,7 @@ yarn add react react-dom
 import React from 'react';
 import ReactDOM from 'react-dom';
 =========================
+
+Loader: Customise beviour of webpack
+
+yarn add babel-core@6.25.0 babel-loader@7.1.1
