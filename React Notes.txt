@@ -237,3 +237,20 @@ import ReactDOM from 'react-dom';
 Loader: Customise beviour of webpack
 
 yarn add babel-core@6.25.0 babel-loader@7.1.1
+
+=========================
+
+Source Maps with Webpack
+https://webpack.js.org/concepts/
+cheap-module-eval-source-map
+
+for devtool Set it in  webpack.config.js
+    devtool: 'cheap-module-eval-source-map',
+=========================
+WebPack Dev Server
+install webpack-dev-server@2.5.1
+yarn add webpack-dev-server@2.5.1
+for sev server Set contentBase in  webpack.config.js
+    devServer : {
+        contentBase: path.join(__dirname, 'public')
+    }
