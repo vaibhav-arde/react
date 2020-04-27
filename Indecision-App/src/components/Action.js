@@ -1,16 +1,14 @@
 import React from 'react';
 
 
-const Action = (props) => {
-    return (
-        <div>
-            <button
-                onClick={props.pickAOption}
-                disabled={!props.hasOptions}
-            >What should I do?</button>
-        </div>
-    );
-}
+const Action = (props) => (
+    <div>
+        <button
+            onClick={props.pickAOption}
+            disabled={!props.hasOptions}
+        >What should I do?</button>
+    </div>
+);
 // class Action extends React.Component {
 //     // btnClick() {
 //     //     alert(`'What should I do' btn clicked.`)

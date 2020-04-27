@@ -3,12 +3,14 @@ import AddOption from './AddOption';
 import Header from './Header';
 import Action from './Action';
 import Options from './Options';
+import OptionModal from './OptionModal';
 
 
 class IndecisionApp extends React.Component {
     state = {
         subTitle: 'Be responsible for all happenings',
-        options: []
+        options: [],
+        selectedOption: undefined
     }
 
     removeAllBtn = () => {
@@ -25,8 +27,8 @@ class IndecisionApp extends React.Component {
 
     pickAOption = () => {
         const randomNum = Math.floor(Math.random() * this.state.options.length);
-        alert(this.state.options[randomNum])
-
+        // alert(this.state.options[randomNum])
+        this.setState(() => ({ selectedOption: this.state.options[randomNum] }))
     }
 
     addNewOption = (option) => {
@@ -36,6 +38,9 @@ class IndecisionApp extends React.Component {
             return 'This option already exist';
         }
         this.setState((prevState) => ({ options: prevState.options.concat(option) }));
+    }
+    closeModal = () => {
+        this.setState(() => ({ selectedOption: undefined }));
     }
 
     componentDidMount() {
@@ -76,6 +81,10 @@ class IndecisionApp extends React.Component {
                 />
                 <AddOption
                     addNewOption={this.addNewOption}
+                />
+                <OptionModal
+                    closeModal={this.closeModal}
+                    selectedOption={this.state.selectedOption}
                 />
             </div>
         );

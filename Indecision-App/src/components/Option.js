@@ -1,19 +1,17 @@
 import React from 'react';
 
-const Option = (props) => {
-    return (
-        <div>
-            {props.optionText}
-            <button
-                onClick={(e) => {
-                    props.removeSingleBtn(props.optionText)
-                }}
-            >
-                remove
+const Option = (props) => (
+    <div>
+        {props.optionText}
+        <button
+            onClick={(e) => {
+                props.removeSingleBtn(props.optionText)
+            }}
+        >
+            remove
             </button>
-        </div>
-    );
-}
+    </div>
+);
 // class Option extends React.Component {
 //     render() {
 //         return (

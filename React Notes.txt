@@ -286,3 +286,12 @@ const newSyntax = new NewSyntax();
 const newGetGreeting = newSyntax.getGreetings
 console.log(newGetGreeting());
 -------------
+=========================
+
+Using Third Party Component
+React Modal
+
+Passing children to component
+
+install react-modal
+yarn add react-modal@2.2.2
