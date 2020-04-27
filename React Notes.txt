@@ -254,3 +254,35 @@ for sev server Set contentBase in  webpack.config.js
     devServer : {
         contentBase: path.join(__dirname, 'public')
     }
+=========================
+
+ES6 class properties
+https://babeljs.io/docs/en/
+
+yarn add babel-plugin-transform-class-properties@6.24.1
+
+"plugins": ["transform-class-properties"]
+-------------
+class OldSyntax{
+    constructor(){
+        this.name ='VaibhaV';
+        this.getGreetings = this.getGreetings.bind(this)
+    }
+    getGreetings(){
+        return `Hi, My name is ${this.name}!`
+    }
+}
+const oldSyntax = new OldSyntax();
+const getGreeting = oldSyntax.getGreetings
+console.log(getGreeting());
+-------------
+class NewSyntax{
+    name ='Sheetal';
+    getGreetings = () => {
+        return `Hi, My name is ${this.name}!`
+    }
+}
+const newSyntax = new NewSyntax();
+const newGetGreeting = newSyntax.getGreetings
+console.log(newGetGreeting());
+-------------
