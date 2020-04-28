@@ -295,3 +295,27 @@ Passing children to component
 
 install react-modal
 yarn add react-modal@2.2.2
+
+==========================
+Setting up Webpack with SCSS:
+
+SCSS is a preprocessor
+npmjs.com/package/css-loader
+npmjs.com/package/style-loader
+
+yarn add style-loader@0.18.2  css-loader@0.28.4
+Direct dependencies
+├─ css-loader@3.5.3
+└─ style-loader@1.2.1
+
+{
+    test: /\.scss$/,
+        use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader'
+        ]
+}
+
+npm uninstall sass-loader node-sass
+npm install sass-loader@7.3.1 node-sass@4.13.1
