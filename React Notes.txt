@@ -319,3 +319,11 @@ Direct dependencies
 
 npm uninstall sass-loader node-sass
 npm install sass-loader@7.3.1 node-sass@4.13.1
+
+--------------------
+Reset that $#!
+it means all browser should start fro  same place as all browssr have own settings
+for this we will use normalize.css
+yarn add normalize.css@7.0.0
+--------------------
+Theming with Variables:

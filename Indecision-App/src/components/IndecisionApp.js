@@ -62,26 +62,28 @@ class IndecisionApp extends React.Component {
         }
     }
 
-    componentWillUnmount() {
-        console.log(`***componentWillUnmount***`)
-    }
+    // componentWillUnmount() {
+    //     console.log(`***componentWillUnmount***`)
+    // }
 
     render() {
         return (
             <div>
                 <Header title={this.state.title} subTitle={this.state.subTitle} />
-                <Action
-                    hasOptions={this.state.options.length > 0}
-                    pickAOption={this.pickAOption}
-                />
-                <Options
-                    options={this.state.options}
-                    removeAllBtn={this.removeAllBtn}
-                    removeSingleBtn={this.removeSingleBtn}
-                />
-                <AddOption
-                    addNewOption={this.addNewOption}
-                />
+                <div className ='container'>
+                    <Action
+                        hasOptions={this.state.options.length > 0}
+                        pickAOption={this.pickAOption}
+                    />
+                    <Options
+                        options={this.state.options}
+                        removeAllBtn={this.removeAllBtn}
+                        removeSingleBtn={this.removeSingleBtn}
+                    />
+                    <AddOption
+                        addNewOption={this.addNewOption}
+                    />
+                </div>
                 <OptionModal
                     closeModal={this.closeModal}
                     selectedOption={this.state.selectedOption}
