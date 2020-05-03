@@ -329,3 +329,6 @@ yarn add normalize.css@7.0.0
 Theming with Variables:
 --------------------
 Big Button and Options List:
+--------------------
+styling Options List:
+Use of flexbox: flex get thing in one line.
