@@ -332,3 +332,9 @@ Big Button and Options List:
 --------------------
 styling Options List:
 Use of flexbox: flex get thing in one line.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+==========================================================
+
+React Router:
+
+Server side routing VS Client side routing
