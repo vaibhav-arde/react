@@ -338,3 +338,27 @@ Use of flexbox: flex get thing in one line.
 React Router:
 
 Server side routing VS Client side routing
+
+https://reacttraining.com/react-router/
+
+========================
+React Router 101:
+
+yarn add react-router-dom
+
+BrowserRouter : To create new router
+Route : to provide router to every single page
+
+const routes = (
+    <BrowserRouter>
+        <div>
+            <Route path='/' component={ExpenseDashboardPage} exact={true} />
+            <Route path='/create' component={AddExpensePage} />
+            <Route path='/edit' component={EditExpensePage} />
+            <Route path='/help' component={HelpPage} />
+        </div>
+    </BrowserRouter>
+)
+
+ReactDOM.render(routes, document.getElementById('app'));
+========================

@@ -1,9 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import IndecisionApp from './components/IndecisionApp';
+import { BrowserRouter, Route } from 'react-router-dom';
 import 'normalize.css/normalize.css';
-import '../styles/styles.scss';
+import './styles/styles.scss';
 
+const ExpenseDashboardPage = () => (
+    <div>
+        This is from my Dashboard component
+    </div>
+);
 
+const AddExpensePage = () => (
+    <div>
+        This is from my Add expense component
+    </div>
+);
 
-ReactDOM.render(<p>This is new boilerplate</p>, document.getElementById('app'));
+const EditExpensePage = () => (
+    <div>
+        This is from my Edit expense component
+    </div>
+);
+
+const HelpPage = () => (
+    <div>
+        This is from my Help component
+    </div>
+);
+
+const routes = (
+    <BrowserRouter>
+        <div>
+            <Route path='/' component={ExpenseDashboardPage} exact={true} />
+            <Route path='/create' component={AddExpensePage} />
+            <Route path='/edit' component={EditExpensePage} />
+            <Route path='/help' component={HelpPage} />
+        </div>
+    </BrowserRouter>
+)
+
+ReactDOM.render(routes, document.getElementById('app'));
