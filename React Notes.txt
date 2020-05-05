@@ -419,4 +419,9 @@ state: undefined
 
 make url dynamic:
 <Route path='/edit/:id' component={EditExpensePage} />
+
+========================
+Build It: Router for Portfolio site
+Portfolio App is build.
+
 ========================
