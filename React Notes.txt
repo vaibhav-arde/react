@@ -399,4 +399,24 @@ onst Header = () => (
 Organinsing Our Routes:
 Crete Router folder --> in that create AppRouter.js, paste all code there
 The create componenet folder in src, in that create individual files for each of component
- 
+
+========================
+Query strings and URL Parameters:
+
+http://127.0.0.1:8080/edit?query=testPage
+location:
+hash: ""
+pathname: "/edit"
+search: "?query=testPage"
+state: undefined
+
+http://127.0.0.1:8080/edit#contact-us
+location:
+hash: "#contact-us"
+pathname: "/edit"
+search: ""
+state: undefined
+
+make url dynamic:
+<Route path='/edit/:id' component={EditExpensePage} />
+========================
