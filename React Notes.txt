@@ -434,9 +434,13 @@ How do I create components that are actually reusable?
 
 Redux is a state container.
 In redux every component can get or update dat fro redux store.
----------------------
+------------------------
 Installing and setting up Redux:
 
 Creating redux store:
 yarn add redux
 creatStore is imported only once from redux
+------------------------
+Dispatching Actions:
+Action is an object that gets sent to the store.
+------------------------
