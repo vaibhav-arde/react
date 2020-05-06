@@ -425,3 +425,18 @@ Build It: Router for Portfolio site
 Portfolio App is build.
 
 ========================
+
+Redux:
+Redux is used for complex/vast codes instead of components.
+
+Where do I store my app state in a complex React app?
+How do I create components that are actually reusable?
+
+Redux is a state container.
+In redux every component can get or update dat fro redux store.
+---------------------
+Installing and setting up Redux:
+
+Creating redux store:
+yarn add redux
+creatStore is imported only once from redux
