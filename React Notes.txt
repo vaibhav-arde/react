@@ -444,3 +444,20 @@ creatStore is imported only once from redux
 Dispatching Actions:
 Action is an object that gets sent to the store.
 ------------------------
+Subcribing and Dynamic Actions:
+
+to keep continous watch on redux store- store.subscribe() is used
+Return value from subscribe is actually a function we can call to unsubscribe.
+const unsubscribe = store.subscribe(()=>{
+    console.log(store.getState());
+});
+unsubscribe();
+--------------------
+store.dispatch({
+    type: 'INCREMENT'
+});
+
+In store.dispatch() type is manadatory for action. We can add other like below:
+incrementBy: 5
+
+
