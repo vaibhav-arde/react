@@ -474,3 +474,4 @@ Reducers:
 2. Never change state or action.
 ========================
 
+Working with Multiple Reducers:
