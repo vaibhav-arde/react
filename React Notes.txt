@@ -464,4 +464,13 @@ incrementBy: 5
 ES6 Object and Array destructuring
 ========================
 
-Refctoring and Organizing
+Refactoring and Organizing
+
+Action Generators are functions that return action objects
+========================
+
+Reducers:
+1. Reducers are pure function.
+2. Never change state or action.
+========================
+
