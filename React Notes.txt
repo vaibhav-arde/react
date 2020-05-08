@@ -460,4 +460,6 @@ store.dispatch({
 In store.dispatch() type is manadatory for action. We can add other like below:
 incrementBy: 5
 
+========================
+ES6 Object destructuring
 
