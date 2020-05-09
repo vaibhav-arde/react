@@ -478,12 +478,26 @@ Working with Multiple Reducers:
 ========================
 ES6 Spread Operator in Reducers:
 
-Reducers on Array
+spread operator on Array:
 npm uuid : this is used to generate unique id.
 yarn add uuid
 
 filer:
 state.filter(({id}) => id !== action.id)
 
+------------------------
+spread operator on Object:
 
+yarn add babel-plugin-transform-object-rest-spread
+
+(babel-plugin-transform-object-rest-spread@6.26.0)
+
+{
+  "plugins": ["transform-object-rest-spread"]
+}
+
+{
+    ...state,
+    text: action.text
+}
 ========================
