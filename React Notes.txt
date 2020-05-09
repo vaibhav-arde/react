@@ -501,3 +501,15 @@ yarn add babel-plugin-transform-object-rest-spread
     text: action.text
 }
 ========================
+Filtering Redux Data
+single function to filter and sort the expenses data
+
+timstamps: are in miliseconds
+0 means = January 1st 1978 (unix epoch)
++ means after 0, -menas before 0.
+ex: 3456, -7654, 10, 0
+
+find string:
+expense.description.toLowerCase().includes(text.toLowerCase());
+========================
+Sorting Redux Data
