@@ -37,9 +37,31 @@ const editExpense = (id, updates) => ({
 })
 
 // 4. SET_TEXT_FILTER setTextFilter
-const setTextFilter = (text= '') =>({
+const setTextFilter = (text = '') => ({
     type: 'SET_TEXT_FILTER',
     text
+})
+
+// 5. SORT_BY_DATE
+const sortByDate = () => ({
+    type: 'SORT_BY_DATE'
+})
+
+// 6. SORT_BY_AMOUNT
+const sortByAmount = () => ({
+    type: 'SORT_BY_AMOUNT'
+})
+
+// 7. SET_START_DATE
+const setStartDate = (startDate) => ({
+    type: 'SET_START_DATE',
+    startDate
+})
+
+// 8. SET_END_DATE
+const setEndDate = (endDate) => ({
+    type: 'SET_END_DATE',
+    endDate
 })
 
 // Expense Reducer
@@ -83,10 +105,35 @@ const filterReducerDefaultState = {
 const filtersReducer = (state = filterReducerDefaultState, action) => {
     switch (action.type) {
         case 'SET_TEXT_FILTER':
-            return  {
+            return {
                 ...state,
                 text: action.text
             }
+
+        case 'SORT_BY_DATE':
+            return {
+                ...state,
+                sortBy: 'date'
+            }
+
+        case 'SORT_BY_AMOUNT':
+            return {
+                ...state,
+                sortBy: 'amount'
+            }
+
+        case 'SET_START_DATE':
+            return {
+                ...state,
+                startDate: action.startDate
+            }
+
+        case 'SET_END_DATE':
+            return {
+                ...state,
+                endDate: action.endDate
+            }
+
         default:
             return state;
     }
@@ -114,6 +161,13 @@ store.dispatch(editExpense(expenseTwo.expense.id, { amount: 200, note: 'Update t
 store.dispatch(setTextFilter('rent'));
 store.dispatch(setTextFilter());
 
+store.dispatch(sortByAmount());
+store.dispatch(sortByDate());
+
+store.dispatch(setStartDate(125))
+store.dispatch(setStartDate())
+store.dispatch(setEndDate(1250))
+
 const demoState = {
     expenses: [{
         id: 'asdfghjdfg',
@@ -125,7 +179,7 @@ const demoState = {
     filters: {
         text: 'rent',
         sortBy: 'amount', //date or amount
-        startDte: undefined,
+        startDate: undefined,
         endDate: undefined
     }
 };
