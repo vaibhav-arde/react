@@ -513,3 +513,9 @@ find string:
 expense.description.toLowerCase().includes(text.toLowerCase());
 ========================
 Sorting Redux Data
+
+========================
+React With Redux:
+
+Organinzing Redux:
+========================
