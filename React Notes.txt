@@ -519,3 +519,12 @@ React With Redux:
 
 Organinzing Redux:
 ========================
+
+Higher Order Components: hoc:
+A component that renders another component.
+Reuse code
+Render Hijacking
+Prop manipulation
+Abstract state
+
+
