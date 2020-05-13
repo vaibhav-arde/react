@@ -527,4 +527,16 @@ Render Hijacking
 Prop manipulation
 Abstract state
 
+========================
 
+Connection Store and Component with React-Redux
+
+yarn add react-redux
+react-redux@7.2.0
+
+https://react-redux.js.org/introduction/quick-start
+https://github.com/reduxjs/react-redux
+React Redux provides <Provider />, which makes the Redux store available to the rest of your app:
+React Redux provides a connect function for you to connect your component to the store.
+========================
+Rendering Indivisual expenses
