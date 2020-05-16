@@ -544,3 +544,15 @@ Rendering Indivisual expenses
 Controlled Inputs for Filters:
 ========================
 DropDown By Picking SortBy:
+========================
+Creating Expense Add/Edit form:
+Regex101.com
+/^\d*(\.\d{0,2})?$/
+
+onAmountChange = (e) => {
+        const amount = e.target.value;
+        if (amount.match(/^\d*(\.\d{0,2})?$/)) {
+            this.setState(() => ({ amount }));
+        }
+    }
+========================
