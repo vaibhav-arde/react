@@ -573,3 +573,17 @@ https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfk
 ========================
 Filtering by Dates:
 ========================
+========================
+
+Section 12 Testing your Application:
+========================
+Setting up Jest:
+
+https://github.com/facebook/jest
+
+yarn add jest
+jest@26.0.1
+
+yarn test --watch (Here watch is associated with yarn)
+yarn test -- --watch (here watch is associated with jest)
+========================
