@@ -586,4 +586,22 @@ jest@26.0.1
 
 yarn test --watch (Here watch is associated with yarn)
 yarn test -- --watch (here watch is associated with jest)
-========================
+
+========================================================
+npm install @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread
+
+Update your .babelrc file to:
+{        
+    "presets": ["@babel/env", "@babel/react"],        
+    "plugins": ["@babel/plugin-proposal-class-properties", "@babel/plugin-proposal-object-rest-spread"]
+}
+
+yarn add @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread
+{        
+   "presets": ["@babel/env", "@babel/react"],        
+   "plugins": ["@babel/plugin-proposal-class-properties", "@babel/plugin-proposal-object-rest-spread"]
+}
+========================================================
+Testing Expenses Action Generators:
+to compare objects use toEqual.
+to compare boolean strings and number use toBe.
