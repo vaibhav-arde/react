@@ -629,4 +629,46 @@ React keep snapshot of current render and compare with next time snapshot.
 
 Inspect code changes or press 'u' to update them.
 
+========================================================
+Enzyme:
+Enzyme is renderer for react, it is full feature renderer by airbnb.
 
+from enzime version 3 we need adaptor: enzyme-adaptor-react-16 : enzyme version changes as per freact version , if react15 then enzyme adaptor shoudl end with 15 
+
+request animation frame(raf) it is provided by browsers
+
+yarn add enzyme enzyme-adapter-react-16 raf
+
+info Direct dependencies
+├─ enzyme-adapter-react-16@1.15.2
+├─ enzyme@3.11.0
+└─ raf@3.4.1
+
+Create file setupTests.js import enzyme and wire with enzyme-adapter
+    import Enzyme from 'enzyme';
+    import Adapter from 'enzyme-adapter-react-16';
+
+    Enzyme.configure({
+        adapter: new Adapter()
+    })
+
+airbnb enzyme document at : 
+https://airbnb.io/projects/enzyme/
+https://enzymejs.github.io/enzyme/docs/installation/react-16.html
+https://enzymejs.github.io/enzyme/docs/api/
+
+setup configuration json file (jest.config.json) as: 
+{
+    "setupFiles": [
+        "raf/polyfill",
+        "<rootDir>/src/tests/setupTests.js"
+    ]
+}
+
+in package .json file update test as
+"test": "jest --config=jest.config.json"
+
+We need to add one utility library to make enzyme work with snapshot functionality that id enzyme-to-json:
+yarn add enzyme-to-json
+info Direct dependencies
+└─ enzyme-to-json@3.5.0
