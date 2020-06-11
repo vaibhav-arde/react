@@ -672,3 +672,6 @@ We need to add one utility library to make enzyme work with snapshot functionali
 yarn add enzyme-to-json
 info Direct dependencies
 └─ enzyme-to-json@3.5.0
+
+========================================================
+Snapshot Testing with Dynamic Components
