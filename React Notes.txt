@@ -605,3 +605,28 @@ yarn add @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/p
 Testing Expenses Action Generators:
 to compare objects use toEqual.
 to compare boolean strings and number use toBe.
+
+========================================================
+Testing components
+Snapshot Testing:
+
+react-test-renderer : this allows us to render our components inside regular javascript code and then we can assert
+
+yarn add react-test-renderer
+react-test-renderer@16.13.1
+
+import  ReactShallowRenderer from 'react-test-renderer/shallow'
+
+there are two kinds to test components
+shallow rendering : render given component
+full dom rendering : render child components
+
+    const renderer = new ReactShallowRenderer();
+    renderer.render(<Header />);
+    expect(renderer.getRenderOutput()).toMatchSnapshot();
+
+React keep snapshot of current render and compare with next time snapshot.
+
+Inspect code changes or press 'u' to update them.
+
+
