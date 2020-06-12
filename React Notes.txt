@@ -675,3 +675,11 @@ info Direct dependencies
 
 ========================================================
 Snapshot Testing with Dynamic Components
+
+========================================================
+121. Mocking Libraries with jest
+https://jestjs.io/docs/en/manual-mocks
+
+create __mocks__ in test folder, in that create moment.js
+
+use jest.requireActual(moduleName) to call actual library in mock library.
