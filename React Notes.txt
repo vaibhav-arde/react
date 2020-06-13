@@ -690,4 +690,7 @@ simulate an event : https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/si
 
 state of enzyme allows us to fetch the state of the component: https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/state.html
 
+========================================================
+123. Test Spies:
 
+https://jestjs.io/docs/en/expect#tohavebeencalledwitharg1-arg2-
