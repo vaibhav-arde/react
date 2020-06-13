@@ -683,3 +683,11 @@ https://jestjs.io/docs/en/manual-mocks
 create __mocks__ in test folder, in that create moment.js
 
 use jest.requireActual(moduleName) to call actual library in mock library.
+
+========================================================
+122. Testing user Interaction
+simulate an event : https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/simulate.html
+
+state of enzyme allows us to fetch the state of the component: https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/state.html
+
+
