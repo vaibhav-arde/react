@@ -702,3 +702,17 @@ https://jestjs.io/docs/en/expect#tohavebeencalledwitharg1-arg2-
 126. Testing ExpenseListFilters |
 127. Testing ExpenseListFilters ||
 ========================================================
+========================================================
+
+Section 13 : Deploying your App:
+
+NodeJS and Express to create a production webserver to serve react application assets
+
+Configure webpack for production reducing bundle size and speeding up an app.
+
+hokruku deployment platformto actually deploy application live to a production server.
+========================================================
+
+129. Installing git
+https://git-scm.com/
+
