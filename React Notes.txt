@@ -716,3 +716,14 @@ hokruku deployment platformto actually deploy application live to a production s
 129. Installing git
 https://git-scm.com/
 
+132. Setting up SSH and Github
+
+========================================================
+133. Production Webpack
+https://webpack.js.org/guides/production/
+"build:dev": "webpack",
+"build:prod": "webpack -p",
+
+In webpack.config.js insteadof exporting object export function.
+
+========================================================
