@@ -1,4 +1,4 @@
-import uuid from 'uuid/v4'
+import uuid from 'uuid'
 
 // Action Generators
 // 1. ADD_EXPENSE
