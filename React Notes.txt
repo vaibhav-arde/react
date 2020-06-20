@@ -742,3 +742,22 @@ info All dependencies
 └─ express@4.17.1
 
 node server/server.js
+
+========================================================
+136. Deploying with Heroku:
+Heroku, aws bean stock, Digital ocean
+
+https://www.heroku.com/#
+https://devcenter.heroku.com/articles/heroku-cli
+
+npm install -g heroku
+
+brew tap heroku/brew && brew install heroku
+
+heroku --version
+heroku login
+heroku create vaibhav-react-expensify
+
+git remote //heroku add himself to remote
+git remote -v
+
