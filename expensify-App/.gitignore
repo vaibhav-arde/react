@@ -1,0 +1,11 @@
+/node_modules
+/Indecision-App/node_modules/
+/node_modules/
+node_modules/
+Indecision-App/node_modules/
+expensify-App/node_modules/
+portfolio-App/node_modules/
+public/bundle.js
+public/bundle.js.map
+public/styles.css
+public/styles.css.map
